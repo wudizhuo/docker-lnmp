@@ -20,8 +20,9 @@ fpm:
   ports:
     - "9000"
   volumes:
-    - ./app/src:/usr/share/nginx/html
-    # Your php.ini
+    - /home/ubuntu/kindle_web_react:/usr/share/nginx/html  
+    - /home/ubuntu/kindle-restapi:/usr/share/nginx/app
+  # Your php.ini
     - ./php-fpm/php.ini-production:/usr/local/etc/php/php.ini:ro
   # environment:
     # Set your APP env variables here:
