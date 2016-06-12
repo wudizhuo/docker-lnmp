@@ -43,10 +43,10 @@ mysql:
   volumes:
     # NOTE: your data will be stored in ./mysql
     - ./mysql:/var/lib/mysql
-    - ./mysql:/docker-entrypoint-initdb.d
+    - ./mysql/initdb.d:/docker-entrypoint-initdb.d
   environment:
-    - MYSQL_ROOT_PASSWORD=123456
-    - MYSQL_DATABASE=kindle_assistant
-    - MYSQL_USER=root
-    - MYSQL_PASSWORD=123456
+    - MYSQL_ROOT_PASSWORD: 123456
+    - MYSQL_DATABASE: kindle_assistant
+    - MYSQL_USER: root
+    - MYSQL_PASSWORD: 123456
     
