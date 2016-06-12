@@ -37,6 +37,8 @@ fpm:
 # database
 mysql:
   image: mysql:latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=123456
   ports:
     # Allow client to access 3306
     - "3306:3306"
@@ -44,5 +46,3 @@ mysql:
     # NOTE: your data will be stored in ./mysql
     - ./mysql:/var/lib/mysql
     - ./mysql/initdb.d:/docker-entrypoint-initdb.d
-  environment:
-    - MYSQL_ROOT_PASSWORD=123456
