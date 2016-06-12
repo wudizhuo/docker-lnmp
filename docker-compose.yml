@@ -38,7 +38,7 @@ fpm:
 mysql:
   image: mysql:latest
   environment:
-    - MYSQL_ROOT_PASSWORD=123456
+    MYSQL_ROOT_PASSWORD: 123456
   ports:
     # Allow client to access 3306
     - "3306:3306"
