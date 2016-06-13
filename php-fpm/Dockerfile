@@ -9,6 +9,18 @@ MAINTAINER micooz <micooz@hotmail.com>
 # You can install php extensions using docker-php-ext-install
 ######
 
+
+# Install kindlegen
+ENV KINDLEGEN_VERSION=kindlegen_linux_2.6_i386_v2_9
+RUN mkdir -p /tmp/kindlegen && \
+	cd /tmp/kindlegen && \
+	curl http://kindlegen.s3.amazonaws.com/${KINDLEGEN_VERSION}.tar.gz -o kindlegen.tar.gz && \
+	tar xvf kindlegen.tar.gz && \
+	chown root. kindlegen && \
+	chmod 755 kindlegen && \
+	mv kindlegen /usr/local/bin/ && \
+	rm -rf /tmp/kindlegen
+
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
