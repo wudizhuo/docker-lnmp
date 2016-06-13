@@ -12,6 +12,8 @@ MAINTAINER micooz <micooz@hotmail.com>
 
 # Install kindlegen
 ENV KINDLEGEN_VERSION=kindlegen_linux_2.6_i386_v2_9
+ENV PATH "$PATH:/usr/local/bin"
+
 RUN mkdir -p /tmp/kindlegen && \
 	cd /tmp/kindlegen && \
 	curl http://kindlegen.s3.amazonaws.com/${KINDLEGEN_VERSION}.tar.gz -o kindlegen.tar.gz && \
