@@ -6,8 +6,8 @@ nginx:
     - "443:443"
   volumes:
     # app
-    - /home/ubuntu/kindle_web_react:/usr/share/nginx/html
-    - /home/ubuntu/kindle-restapi:/usr/share/nginx/app
+    - $HOME/kindle_web_react:/usr/share/nginx/html
+    - $HOME/kindle-restapi:/usr/share/nginx/app
     # nginx configs
     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
@@ -20,8 +20,8 @@ fpm:
   ports:
     - "9000"
   volumes:
-    - /home/ubuntu/kindle_web_react:/usr/share/nginx/html  
-    - /home/ubuntu/kindle-restapi:/usr/share/nginx/app
+    - $HOME/kindle_web_react:/usr/share/nginx/html  
+    - $HOME/kindle-restapi:/usr/share/nginx/app
   # Your php.ini
     - ./php-fpm/php.ini-production:/usr/local/etc/php/php.ini:ro
   # environment:
