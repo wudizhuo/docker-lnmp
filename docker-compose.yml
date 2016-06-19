@@ -23,7 +23,9 @@ services:
       - "9000"
     volumes:
       - $HOME/kindle_web_react:/usr/share/nginx/html  
-      - $HOME/kindle-restapi:/usr/share/nginx/app    
+      - $HOME/kindle-restapi:/usr/share/nginx/app
+    # Your php.ini
+      - ./php-fpm/php.ini-production:/usr/local/etc/php/php.ini:ro
     # environment:
       # Set your APP env variables here:
       # - APP_KEY=
