@@ -18,7 +18,7 @@ services:
 
   # php-fpm
   php_postfix_kindlegen:
-    build: ./php-fpm
+    image: wudizhuo/php_postfix_kindlegen:V1.1
     ports:
       - "9000"
     volumes:
