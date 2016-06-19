@@ -14,7 +14,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
     links:
-      - php_postfix_kindlegen:__DOCKER_PHP_FPM__
+      - php_postfix_kindlegen
 
   # php-fpm
   php_postfix_kindlegen:
