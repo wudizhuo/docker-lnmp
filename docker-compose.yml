@@ -16,4 +16,4 @@ nginx:
 
 # php-fpm
 fpm:
-  image: wudizhuo/php_postfix_kindlegen
+  image: wudizhuo/php_postfix_kindlegen:V1
