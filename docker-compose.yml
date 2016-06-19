@@ -1,33 +1,35 @@
-# web server
-nginx:
-  image: nginx:latest
-  ports:
-    - "80:80"
-    - "443:443"
-  volumes:
-    # app
-    - $HOME/kindle_web_react:/usr/share/nginx/html
-    - $HOME/kindle-restapi:/usr/share/nginx/app
-    # nginx configs
-    - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
-  links:
-    - php_postfix_kindlegen:__DOCKER_PHP_FPM__
+version: '2'
+services:
+  # web server
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # app
+      - $HOME/kindle_web_react:/usr/share/nginx/html
+      - $HOME/kindle-restapi:/usr/share/nginx/app
+      # nginx configs
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
+    links:
+      - php_postfix_kindlegen:__DOCKER_PHP_FPM__
 
-# php-fpm
-php_postfix_kindlegen:
-  image: wudizhuo/php_postfix_kindlegen:V1
-  ports:
-    - "9000"
-  volumes:
-    - $HOME/kindle_web_react:/usr/share/nginx/html  
-    - $HOME/kindle-restapi:/usr/share/nginx/app
-  # Your php.ini
-    - ./php-fpm/php.ini-production:/usr/local/etc/php/php.ini:ro
-  # environment:
-    # Set your APP env variables here:
-    # - APP_KEY=
-    # - DB_HOST=
-    # - DB_DATABASE=
-    # - DB_USERNAME=
-    # - DB_PASSWORD=
+  # php-fpm
+  php_postfix_kindlegen:
+    image: wudizhuo/php_postfix_kindlegen:V1
+    ports:
+      - "9000"
+    volumes:
+      - $HOME/kindle_web_react:/usr/share/nginx/html  
+      - $HOME/kindle-restapi:/usr/share/nginx/app
+    # Your php.ini
+      - ./php-fpm/php.ini-production:/usr/local/etc/php/php.ini:ro
+    # environment:
+      # Set your APP env variables here:
+      # - APP_KEY=
+      # - DB_HOST=
+      # - DB_DATABASE=
+      # - DB_USERNAME=
+      # - DB_PASSWORD=
