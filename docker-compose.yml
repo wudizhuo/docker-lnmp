@@ -33,3 +33,17 @@ services:
       # - DB_DATABASE=
       # - DB_USERNAME=
       # - DB_PASSWORD=
+    links:
+    - mysql:mysql
+
+  # database
+  mysql:
+    image: mysql:latest
+    ports:
+      # Allow client to access 3306
+      - "3306:3306"
+    volumes:
+      # NOTE: your data will be stored in ./mysql
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=your_mysql_password
